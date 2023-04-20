@@ -19,7 +19,9 @@ export const issuesReducer = (state: any = initialState, action: {
                     state: Boolean;
                     id: any;
                 }) => {
-                    if (issue?.id?.toString() !== action.payload.draggableId || action.payload.droppableIdStart === action.payload.droppableIdEnd) {
+                    const isSameColumn = action.payload.droppableIdStart === action.payload.droppableIdEnd;
+
+                    if (issue?.id?.toString() !== action.payload.draggableId || isSameColumn) {
                         const newIssues = [...state.issues]
 
                         const filteredIssues = newIssues.filter((issue: { id: { toString: () => any; }; }) => issue.id.toString() !== action.payload.draggableId);

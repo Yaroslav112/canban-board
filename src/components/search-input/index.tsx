@@ -7,7 +7,6 @@ const SearchInput = () => {
     const dispatch = useDispatch();
 
     const handleLoadIssues = async () => {
-        console.log('Loading issues from repository:', repoUrl);
         try {
             const repoParts = repoUrl.split('/');
             const owner = repoParts[3];
